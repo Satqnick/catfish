@@ -1,20 +1,23 @@
 body {
     background-color: #ffe6e6;
-    font-family: Arial, sans-serif;
+    font-family: 'Lora', serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     text-align: center;
 }
 .container {
     background: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
-h1 { color: #ff4d4d; }
+h1 { 
+    font-family: 'Playfair Display', serif; 
+    color: #ff4d4d; 
+}
 img { 
     max-width: 100%; 
     height: auto; 
