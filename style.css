@@ -34,3 +34,42 @@ p {
     color: #444444; 
     font-size: 16px;
 }
+.counter-box {
+    background-color: #fff0f0;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+.counter-box h3 {
+    font-size: 14px;
+    margin: 0 0 5px 0;
+    color: #666;
+}
+#countdown {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4dff59;
+}
+.question-box {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed #eee;
+}
+button {
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.1s;
+}
+.question-box button:first-of-type {
+    background-color: #4dff68;
+    color: white;
+    font-weight: bold;
+}
+#btn-kabur {
+    background-color: #eee;
+    color: #333;
+}
