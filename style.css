@@ -1,18 +1,23 @@
 body {
     background-color: #ffe6e6;
     font-family: 'Lora', serif;
+    margin: 0;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    margin: 0;
-    text-align: center;
+    box-sizing: border-box;
 }
+
 .container {
     background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+    height: fit-content;
 }
 h1 { 
     font-family: 'Playfair Display', serif; 
@@ -23,4 +28,10 @@ img {
     height: auto; 
     border-radius: 10px; 
     margin-top: 15px;
+}
+p {
+    line-height: 1.7; 
+    text-align: left; 
+    color: #444; 
+    font-size: 16px;
 }
