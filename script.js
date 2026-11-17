@@ -1,87 +1,87 @@
 // =========================================================
-// KONFIGURASI UTAMA (Edit teks & momen sesuai cerita kalian)
+// KONFIGURASI CERITA KITA (Edit teks di sini kalau mau disesuaikan)
 // =========================================================
-const CONFIG = {
-    // Tanggal jadian: 14 Februari 2026 (Valentine's Day)
+const STORY = {
     startDate: "2026-02-14T00:00:00",
 
-    heroTitle: "Two Tones, One Story.",
-    heroSubtitle: "Dimulai tepat di hari Valentine, 14 Februari 2026. Dua warna berbeda yang menyatu menjadi ruang paling tenang.",
+    heroTitle: "Two Souls, One Story.",
+    heroSubtitle: "Happy anniversary. Di tengah dunia yang kadang terlalu loud dan draining, makasih udah jadi safe space paling tenang buat aku—tempat di mana aku nggak perlu over-explain apa pun.",
 
-    // Kartu Catatan Interaktif (Bisa diacak/diganti saat diklik)
-    littleNotes: [
+    // Kartu Catatan Interaktif
+    notes: [
         {
             tag: "🍏 × 🫐",
-            text: "Kita punya ritme yang berbeda, tapi entah kenapa selalu ketemu di titik tengah yang paling pas."
+            text: "Sama kamu, silence nggak pernah terasa awkward. Justru di momen-momen sepi kayak gitu semuanya kerasa paling real."
         },
         {
             tag: "🫐",
-            text: "Cara kamu menenangkan suasana selalu bikin hari yang rumit terasa jauh lebih ringan."
+            text: "Aku selalu kagum sama cara kamu nangkep detail kecil dari mood aku, bahkan pas aku sendiri belum sadar lagi capek."
         },
         {
             tag: "🍏",
-            text: "Di antara banyak hal yang berubah, memastikan kamu tetap aman dan nyaman selalu jadi prioritas."
+            text: "Social battery aku mungkin gampang habis buat banyak hal, tapi ngabisin waktu sama kamu nggak pernah kerasa draining."
         },
         {
             tag: "🍏 × 🫐",
-            text: "14 Februari bukan cuma soal tanggal di kalender, tapi titik awal dari semua cerita yang kita bangun pelan-pelan."
+            text: "14 Februari kemarin bukan cuma soal tanggal, tapi titik awal di mana aku nemu seseorang yang beneran nyambung secara frekuensi."
         },
         {
             tag: "🫐",
-            text: "Terima kasih sudah selalu menjadi pendengar yang jernih dan tempat cerita tanpa perlu berpura-pura."
+            text: "Makasih udah selalu jadi pendengar yang jernih dan nerima versi paling apa adanya dari aku, tanpa tuntutan apa-apa."
         }
     ],
 
-    // Jejak Perjalanan (accent: "me" = 🍏 | "her" = 🫐 | "both" = 🍏 × 🫐)
+    // Jejak Perjalanan (tone: "sage" = 🍏 | "midnight" = 🫐 | "both" = 🍏 × 🫐)
     milestones: [
         {
             date: "14 FEB 2026",
-            title: "Hari Pertama — Valentine's Chapter",
-            description: "Resmi melangkah bersama. Awal dari perjalanan hijau dan biru.",
-            accent: "both"
+            title: "Day One — Valentine's Chapter",
+            description: "Awal mula semuanya. Dua jalan yang beda akhirnya mutusin buat jalan searah.",
+            tone: "both"
         },
         {
-            date: "MEI 2026",
-            title: "Saling Memahami Ritme",
-            description: "Belajar bahwa ketenangan tidak butuh banyak kata—cukup kehadiran yang konsisten.",
-            accent: "me"
+            date: "MID 2026",
+            title: "Finding Our Pace",
+            description: "Belajar baca ritme masing-masing—kapan butuh waktu sendiri buat mikir, dan kapan cukup ditemenin tanpa banyak tanya.",
+            tone: "sage"
         },
         {
-            date: "AGU 2026",
-            title: "Keteduhan di Tengah Kesibukan",
-            description: "Obrolan-obrolan larut dan tawa kecil yang selalu berhasil meredakan penat.",
-            accent: "her"
+            date: "LATE 2026",
+            title: "Late-Night Deep Talks",
+            description: "Obrolan-obrolan panjang yang pelan-pelan ngebuka sisi paling jujur dari kita berdua.",
+            tone: "midnight"
         },
         {
-            date: "NOV 2026",
-            title: "Sembilan Bulan Berjalan",
-            description: "Semakin mengenal sudut pandang masing-masing dan bertumbuh ke arah yang sama.",
-            accent: "both"
+            date: "ANNIVERSARY",
+            title: "One Full Chapter",
+            description: "Ngerayain sejauh ini kita melangkah, dan siap nulis halaman-halaman berikutnya dengan tenang.",
+            tone: "both"
         }
     ],
 
     // Surat Personal
-    letterHeading: "Untuk Kamu, di Babak Ini",
+    letterTitle: "Buka Surat Anniversary",
     letterParagraphs: [
-        "Sejak 14 Februari 2026 kemarin, banyak hal sederhana yang rasanya berubah jadi jauh lebih bermakna karena ada kamu di dalamnya.",
-        "Kalau 🍏 adalah hijau yang berusaha menjaga pijakan tetap teguh, maka 🫐 adalah biru yang selalu memberi keteduhan di setiap langkahnya.",
-        "Terima kasih sudah berjalan sejauh ini bersama. Tidak perlu terburu-buru—mari terus bertumbuh dengan tenang, satu hari demi satu hari."
+        "Happy anniversary buat kita. Nggak kerasa udah sejauh ini sejak 14 Februari 2026 kemarin.",
+        "Aku sadar aku bukan tipe orang yang selalu romantis atau vokal tiap saat. Tapi sama kamu, aku nemu bentuk nyaman yang beda—yang nggak berisik, nggak maksa, tapi selalu ada.",
+        "Makasih udah jadi tempat pulang paling teduh, udah ngertiin isi kepala aku yang kadang terlalu ramai, dan tetap jalan bareng sejauh ini.",
+        "Here's to more quiet mornings, late-night talks, and growing at our own pace. Happy anniversary, bawel."
     ],
-    letterSignature: "— Always in your corner, 🍏"
+    letterSignature: "— Always in your corner, 🍏."
 };
 
 // =========================================================
-// LOGIKA INTERAKTIF
+// LOGIKA INTERAKTIF & ANIMASI
 // =========================================================
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("heroTitle").textContent = CONFIG.heroTitle;
-    document.getElementById("heroSubtitle").textContent = CONFIG.heroSubtitle;
-    document.getElementById("letterHeading").textContent = CONFIG.letterHeading;
+    document.getElementById("heroTitle").textContent = STORY.heroTitle;
+    document.getElementById("heroSubtitle").textContent = STORY.heroSubtitle;
+    document.getElementById("letterTitle").textContent = STORY.letterTitle;
 
-    const startObj = new Date(CONFIG.startDate);
+    const startObj = new Date(STORY.startDate);
 
-    // 1. Live Counter & Countdown ke 14 Feb berikutnya
-    const updateCounter = () => {
+    // 1. Live Timer
+    const updateTimer = () => {
         const now = new Date();
         let years = now.getFullYear() - startObj.getFullYear();
         let months = now.getMonth() - startObj.getMonth();
@@ -106,108 +106,99 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("hours").textContent = String(Math.max(0, hours)).padStart(2, "0");
         document.getElementById("minutes").textContent = String(Math.max(0, minutes)).padStart(2, "0");
         document.getElementById("seconds").textContent = String(Math.max(0, seconds)).padStart(2, "0");
-
-        // Hitung sisa hari ke 14 Februari berikutnya
-        let nextAnniv = new Date(now.getFullYear(), 1, 14); // Bulan 1 = Februari
-        if (now >= nextAnniv) {
-            nextAnniv = new Date(now.getFullYear() + 1, 1, 14);
-        }
-        const diffDays = Math.ceil((nextAnniv - now) / (1000 * 60 * 60 * 24));
-        document.getElementById("nextMilestoneCaption").textContent =
-            `${diffDays} hari menuju 14 Feb ${nextAnniv.getFullYear()}`;
     };
 
-    updateCounter();
-    setInterval(updateCounter, 1000);
+    updateTimer();
+    setInterval(updateTimer, 1000);
 
-    // 2. Interactive Tone Resonance Slider (🍏 <-> 🫐)
-    const slider = document.getElementById("toneSlider");
-    const ratioLabel = document.getElementById("mixerRatio");
-    const statusLabel = document.getElementById("mixerStatus");
+    // 2. Interactive Frequency Slider (Sage Green 🍏 <-> Midnight Blue 🫐)
+    const slider = document.getElementById("soulSlider");
+    const readout = document.getElementById("balanceReadout");
+    const reflection = document.getElementById("balanceReflection");
 
-    slider.addEventListener("input", (e) => {
-        const bluePct = Number(e.target.value);
-        const greenPct = 100 - bluePct;
+    const setReflection = (blueVal) => {
+        const greenVal = 100 - blueVal;
+        readout.textContent = `${greenVal}% 🍏 • ${blueVal}% 🫐`;
 
-        ratioLabel.textContent = `${greenPct}% 🍏 / ${bluePct}% 🫐`;
+        document.documentElement.style.setProperty("--sage-opacity", (0.2 + (greenVal / 100) * 0.75).toFixed(2));
+        document.documentElement.style.setProperty("--midnight-opacity", (0.25 + (blueVal / 100) * 0.85).toFixed(2));
 
-        // Ubah intensitas cahaya latar belakang secara halus
-        document.documentElement.style.setProperty("--green-opacity", (0.2 + (greenPct / 100) * 0.75).toFixed(2));
-        document.documentElement.style.setProperty("--blue-opacity", (0.2 + (bluePct / 100) * 0.75).toFixed(2));
-
-        if (bluePct >= 45 && bluePct <= 55) {
-            statusLabel.textContent = "Seimbang — ketenangan hijau dan teduhnya biru menyatu utuh.";
-        } else if (greenPct > 55) {
-            statusLabel.textContent = "Dominan 🍏 — fokus pada pijakan yang tenang dan menjaga arah.";
+        if (blueVal >= 45 && blueVal <= 55) {
+            reflection.textContent = "Sweet spot — dua isi kepala yang sama-sama suka mikir jauh, akhirnya ketemu di titik paling tenang tanpa perlu pura-pura.";
+        } else if (greenVal > 55) {
+            reflection.textContent = "Sage mode 🍏 — low-key, observant, dan fokus ngejaga biar langkah kita tetap steady apa pun yang lagi terjadi di luar.";
         } else {
-            statusLabel.textContent = "Dominan 🫐 — fokus pada keteduhan, kedalaman, dan ruang cerita.";
+            reflection.textContent = "Midnight mode 🫐 — deep talks, keteduhan, dan ruang paling jujur buat ngebahas hal-hal yang jarang dimengerti orang lain.";
         }
-    });
-
-    // 3. Interactive Little Notes Deck
-    let currentNoteIdx = 0;
-    const noteDisplay = document.getElementById("noteDisplay");
-    const noteBadge = document.getElementById("noteBadge");
-    const noteText = document.getElementById("noteText");
-    const noteIndex = document.getElementById("noteIndex");
-    const nextNoteBtn = document.getElementById("nextNoteBtn");
-
-    const renderNote = (idx) => {
-        const note = CONFIG.littleNotes[idx];
-        noteBadge.textContent = note.tag;
-        noteText.textContent = note.text;
-        noteIndex.textContent = `${String(idx + 1).padStart(2, "0")} / ${String(CONFIG.littleNotes.length).padStart(2, "0")}`;
     };
 
-    renderNote(0);
+    setReflection(50);
+    slider.addEventListener("input", (e) => setReflection(Number(e.target.value)));
 
-    nextNoteBtn.addEventListener("click", () => {
-        noteDisplay.classList.add("fade-out");
+    // 3. Interactive Notes Deck
+    let noteIdx = 0;
+    const noteBox = document.getElementById("noteBox");
+    const noteTag = document.getElementById("noteTag");
+    const noteContent = document.getElementById("noteContent");
+    const noteCounter = document.getElementById("noteCounter");
+    const shuffleBtn = document.getElementById("shuffleNoteBtn");
+
+    const showNote = (index) => {
+        const item = STORY.notes[index];
+        noteTag.textContent = item.tag;
+        noteContent.textContent = item.text;
+        noteCounter.textContent = `${String(index + 1).padStart(2, "0")} / ${String(STORY.notes.length).padStart(2, "0")}`;
+    };
+
+    showNote(0);
+
+    shuffleBtn.addEventListener("click", () => {
+        noteBox.classList.add("switching");
         setTimeout(() => {
-            currentNoteIdx = (currentNoteIdx + 1) % CONFIG.littleNotes.length;
-            renderNote(currentNoteIdx);
-            noteDisplay.classList.remove("fade-out");
-        }, 220);
+            noteIdx = (noteIdx + 1) % STORY.notes.length;
+            showNote(noteIdx);
+            noteBox.classList.remove("switching");
+        }, 200);
     });
 
-    // 4. Render Timeline Milestones
+    // 4. Render Timeline
     const timelineContainer = document.getElementById("timelineContainer");
-    const accentEmoji = { me: "🍏", her: "🫐", both: "🍏 × 🫐" };
+    const toneBadges = { sage: "🍏", midnight: "🫐", both: "🍏 × 🫐" };
 
-    CONFIG.milestones.forEach((item) => {
-        const article = document.createElement("article");
-        article.className = `card-surface milestone ${item.accent}`;
-        article.innerHTML = `
+    STORY.milestones.forEach((m) => {
+        const el = document.createElement("article");
+        el.className = `card-surface milestone ${m.tone}`;
+        el.innerHTML = `
             <div class="milestone-top">
-                <span class="milestone-date">${item.date}</span>
-                <span class="milestone-icon">${accentEmoji[item.accent] || "🍏 × 🫐"}</span>
+                <span class="milestone-date">${m.date}</span>
+                <span>${toneBadges[m.tone] || "🍏 × 🫐"}</span>
             </div>
-            <h3 class="milestone-title">${item.title}</h3>
-            <p class="milestone-desc">${item.description}</p>
+            <h3 class="milestone-title">${m.title}</h3>
+            <p class="milestone-desc">${m.description}</p>
         `;
-        timelineContainer.appendChild(article);
+        timelineContainer.appendChild(el);
     });
 
-    // 5. Render Surat Personal & Accordion Toggle
-    const letterBody = document.getElementById("letterBody");
-    CONFIG.letterParagraphs.forEach((text) => {
+    // 5. Render Letter & Toggle
+    const letterContent = document.getElementById("letterContent");
+    STORY.letterParagraphs.forEach((pText) => {
         const p = document.createElement("p");
-        p.textContent = text;
-        letterBody.appendChild(p);
+        p.textContent = pText;
+        letterContent.appendChild(p);
     });
-    const sign = document.createElement("div");
-    sign.className = "letter-sign";
-    sign.textContent = CONFIG.letterSignature;
-    letterBody.appendChild(sign);
+    const sig = document.createElement("div");
+    sig.className = "letter-sign";
+    sig.textContent = STORY.letterSignature;
+    letterContent.appendChild(sig);
 
-    const letterCard = document.getElementById("letterCard");
-    const letterToggle = document.getElementById("letterToggle");
-    letterToggle.addEventListener("click", () => {
-        const isOpen = letterCard.classList.toggle("open");
-        letterToggle.setAttribute("aria-expanded", String(isOpen));
+    const letterBox = document.getElementById("letterBox");
+    const letterTrigger = document.getElementById("letterTrigger");
+    letterTrigger.addEventListener("click", () => {
+        const isOpen = letterBox.classList.toggle("open");
+        letterTrigger.setAttribute("aria-expanded", String(isOpen));
     });
 
-    // 6. Subtle Cursor Spotlight pada semua kartu
+    // 6. Subtle Cursor Spotlight
     document.querySelectorAll(".card-surface").forEach((card) => {
         card.addEventListener("mousemove", (e) => {
             const rect = card.getBoundingClientRect();
@@ -216,7 +207,51 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 7. Scroll Reveal
+    // 7. Ambient Dust Particles (Sage Green & Midnight Blue)
+    const canvas = document.getElementById("ambientCanvas");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+
+    const resizeCanvas = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    };
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    const colors = ["rgba(156, 202, 180, 0.22)", "rgba(139, 178, 222, 0.24)"];
+    for (let i = 0; i < 28; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 1.6 + 0.6,
+            vx: (Math.random() - 0.5) * 0.16,
+            vy: (Math.random() - 0.5) * 0.16,
+            color: colors[i % 2]
+        });
+    }
+
+    const animateParticles = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0) p.x = canvas.width;
+            if (p.x > canvas.width) p.x = 0;
+            if (p.y < 0) p.y = canvas.height;
+            if (p.y > canvas.height) p.y = 0;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+        });
+        requestAnimationFrame(animateParticles);
+    };
+    animateParticles();
+
+    // 8. Scroll Reveal
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
@@ -228,6 +263,5 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         { threshold: 0.1 }
     );
-
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 });

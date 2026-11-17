@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍏 × 🫐 — Since 14 Feb 2026</title>
+    <title>🍏 × 🫐 — Two Souls, One Story</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -11,31 +11,32 @@
 </head>
 <body>
 
-    <!-- Subtle Matte Texture & Ambient Glow -->
+    <!-- Matte Ambient Layers -->
+    <canvas id="ambientCanvas" aria-hidden="true"></canvas>
     <div class="noise-overlay" aria-hidden="true"></div>
-    <div class="ambient-canvas" aria-hidden="true">
-        <div class="orb orb-green" id="orbGreen"></div>
-        <div class="orb orb-blue" id="orbBlue"></div>
+    <div class="glow-layer" aria-hidden="true">
+        <div class="orb orb-sage"></div>
+        <div class="orb orb-midnight"></div>
     </div>
 
     <main class="wrapper">
         <!-- Hero Section -->
-        <section class="hero reveal">
-            <div class="pill-group">
-                <span class="pill-badge">🍏 &times; 🫐</span>
-                <span class="pill-divider">&bull;</span>
-                <span class="pill-badge mono">14 FEB 2026 &mdash; VALENTINE</span>
+        <header class="hero reveal">
+            <div class="soul-pill">
+                <span>🍏</span>
+                <span class="pill-sep">&times;</span>
+                <span>🫐</span>
+                <span class="pill-divider">|</span>
+                <span class="pill-date">14.02.26 &mdash; HAPPY ANNIVERSARY</span>
             </div>
 
-            <h1 class="hero-title" id="heroTitle">Two Tones, One Story.</h1>
-            <p class="hero-subtitle" id="heroSubtitle">
-                Dimulai tepat di hari Valentine. Dua karakter berbeda yang menyatu menjadi ruang paling tenang.
-            </p>
-        </section>
+            <h1 class="hero-title" id="heroTitle">Two Souls, One Story.</h1>
+            <p class="hero-subtitle" id="heroSubtitle"></p>
+        </header>
 
         <!-- Live Duration Counter -->
-        <section class="card-surface counter-section reveal" aria-label="Durasi Hubungan">
-            <div class="section-label">TIME TOGETHER</div>
+        <section class="card-surface counter-section reveal" aria-label="Waktu Bersama">
+            <div class="eyebrow">RUNNING SINCE VALENTINE &mdash; 14 FEB 2026</div>
             <div class="counter-grid">
                 <div class="time-box">
                     <span class="time-val" id="years">0</span>
@@ -62,104 +63,105 @@
                     <span class="time-unit">Detik</span>
                 </div>
             </div>
-            <div class="counter-meta">
-                <span id="startDateCaption">14 Februari 2026</span>
-                <span class="meta-dot">&bull;</span>
-                <span id="nextMilestoneCaption">Menghitung hari menuju anniversary berikutnya...</span>
-            </div>
+            <p class="counter-caption">
+                Every second since day one, and still counting.
+            </p>
         </section>
 
-        <!-- Interactive 1: Dual-Tone Atmosphere Mixer -->
-        <section class="card-surface interactive-mixer reveal">
-            <div class="mixer-top">
-                <span class="section-label">INTERACTIVE MOOD</span>
-                <span class="mixer-ratio mono" id="mixerRatio">50% 🍏 / 50% 🫐</span>
-            </div>
-            <h2 class="card-heading">Sesuaikan Nuansa Kita</h2>
-            <p class="card-subtext">Geser untuk mengubah keseimbangan cahaya hijau dan biru di halaman ini.</p>
-
-            <div class="slider-row">
-                <span class="slider-emoji" title="Green">🍏</span>
-                <input type="range" id="toneSlider" min="0" max="100" value="50" aria-label="Keseimbangan warna hijau dan biru">
-                <span class="slider-emoji" title="Blueberry">🫐</span>
-            </div>
-
-            <p class="mixer-status" id="mixerStatus">Seimbang — ketenangan hijau dan teduhnya biru menyatu utuh.</p>
-        </section>
-
-        <!-- Dual Perspectives -->
-        <section class="duotone-section reveal">
-            <div class="card-surface tone-card tone-green">
-                <div class="tone-header">
-                    <span class="tone-emoji">🍏</span>
-                    <span class="tone-tag mono">SAGE GREEN</span>
+        <!-- Two Souls Cards -->
+        <section class="souls-grid reveal">
+            <article class="card-surface soul-card soul-sage">
+                <div class="soul-top">
+                    <span class="soul-emoji">🍏</span>
+                    <span class="soul-shade">SAGE GREEN</span>
                 </div>
-                <h2 class="tone-title">Grounded &amp; Steady</h2>
-                <p class="tone-desc">
-                    Pijakan yang tenang, arah yang jelas, dan tempat pulang yang selalu bisa diandalkan.
+                <h2 class="soul-title">Quietly Grounded</h2>
+                <p class="soul-desc">
+                    Aku mungkin nggak selalu ekspresif atau jago ngerangkai kata-kata manis. Cara aku peduli lebih sering hadir lewat hal-hal kecil—ngasih ruang, ngejaga arah, dan mastiin kamu selalu punya pijakan yang aman.
                 </p>
-            </div>
+            </article>
 
-            <div class="card-surface tone-card tone-blue">
-                <div class="tone-header">
-                    <span class="tone-emoji">🫐</span>
-                    <span class="tone-tag mono">SLATE BLUE</span>
+            <article class="card-surface soul-card soul-midnight">
+                <div class="soul-top">
+                    <span class="soul-emoji">🫐</span>
+                    <span class="soul-shade">MIDNIGHT BLUE</span>
                 </div>
-                <h2 class="tone-title">Serene &amp; Deep</h2>
-                <p class="tone-desc">
-                    Keteduhan, kejernihan, dan kehangatan yang membuat setiap hari terasa lebih hidup.
+                <h2 class="soul-title">Deep &amp; Unspoken</h2>
+                <p class="soul-desc">
+                    Kamu punya keteduhan yang susah dijelasin. Peka sama hal-hal yang bahkan belum sempat aku ucapin, dan entah gimana selalu bikin semuanya terasa lebih jernih dan utuh.
                 </p>
-            </div>
+            </article>
         </section>
 
-        <!-- Interactive 2: Little Notes Shuffler -->
-        <section class="card-surface notes-deck reveal">
-            <div class="notes-header">
+        <!-- Interactive 1: Frequency & Aura Mixer -->
+        <section class="card-surface balance-section reveal">
+            <div class="balance-header">
                 <div>
-                    <span class="section-label left">LITTLE NOTES</span>
-                    <h2 class="card-heading">Hal-Hal Kecil Tentang Kita</h2>
+                    <div class="eyebrow left">OUR DYNAMIC</div>
+                    <h2 class="section-heading">Between Two Frequencies</h2>
                 </div>
-                <button type="button" class="btn-shuffle" id="nextNoteBtn">
-                    <span>Acak Catatan</span>
-                    <span class="shuffle-icon">&#8635;</span>
+                <span class="balance-readout" id="balanceReadout">50% 🍏 &bull; 50% 🫐</span>
+            </div>
+
+            <div class="slider-wrap">
+                <span class="slider-icon" aria-hidden="true">🍏</span>
+                <input type="range" id="soulSlider" min="0" max="100" value="50" aria-label="Geser keseimbangan cahaya sage green dan midnight blue">
+                <span class="slider-icon" aria-hidden="true">🫐</span>
+            </div>
+
+            <p class="balance-reflection" id="balanceReflection"></p>
+        </section>
+
+        <!-- Interactive 2: Unspoken Notes Deck -->
+        <section class="card-surface notes-section reveal">
+            <div class="notes-top">
+                <div>
+                    <div class="eyebrow left">UNSPOKEN NOTES</div>
+                    <h2 class="section-heading">Things I Quietly Appreciate</h2>
+                </div>
+                <button type="button" class="btn-ghost" id="shuffleNoteBtn">
+                    <span>Next Note</span>
+                    <span class="btn-icon" aria-hidden="true">&#8635;</span>
                 </button>
             </div>
 
-            <div class="note-display" id="noteDisplay">
-                <span class="note-badge" id="noteBadge">🍏 &times; 🫐</span>
-                <p class="note-text" id="noteText"></p>
-                <span class="note-index mono" id="noteIndex">01 / 05</span>
+            <div class="note-card-inner" id="noteBox">
+                <div class="note-meta">
+                    <span class="note-tag" id="noteTag">🍏 &times; 🫐</span>
+                    <span class="note-counter" id="noteCounter">01 / 05</span>
+                </div>
+                <p class="note-content" id="noteContent"></p>
             </div>
         </section>
 
         <!-- Timeline Milestones -->
         <section class="timeline-section reveal">
-            <div class="section-header">
-                <div class="section-label">CHAPTERS</div>
-                <h2 class="section-title">Jejak Perjalanan</h2>
+            <div class="timeline-head">
+                <div class="eyebrow">CHAPTERS</div>
+                <h2 class="timeline-main-title">Perjalanan Sejauh Ini</h2>
             </div>
             <div class="timeline" id="timelineContainer"></div>
         </section>
 
-        <!-- Interactive 3: Sealed Letter -->
+        <!-- Interactive 3: Sealed Anniversary Letter -->
         <section class="letter-section reveal">
-            <div class="card-surface letter-card" id="letterCard">
-                <button type="button" class="letter-toggle" id="letterToggle" aria-expanded="false">
-                    <div class="letter-toggle-info">
-                        <span class="letter-kicker mono">SEALED NOTE</span>
-                        <h3 class="letter-heading" id="letterHeading">Buka Pesan Khusus</h3>
+            <div class="card-surface letter-box" id="letterBox">
+                <button type="button" class="letter-trigger" id="letterTrigger" aria-expanded="false">
+                    <div>
+                        <span class="eyebrow left">A NOTE FOR YOU</span>
+                        <h3 class="letter-title" id="letterTitle">Buka Surat Anniversary</h3>
                     </div>
-                    <span class="letter-icon" id="letterIcon">+</span>
+                    <span class="letter-plus" id="letterPlus">+</span>
                 </button>
 
-                <div class="letter-collapse" id="letterCollapse">
-                    <div class="letter-body" id="letterBody"></div>
+                <div class="letter-drawer" id="letterDrawer">
+                    <div class="letter-inner" id="letterContent"></div>
                 </div>
             </div>
         </section>
 
         <footer class="footer reveal">
-            <span>🍏 &times; 🫐 &mdash; Since Valentine 2026</span>
+            <p>🍏 &times; 🫐 &mdash; Crafted quietly for our anniversary.</p>
         </footer>
     </main>
 
