@@ -318,3 +318,191 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 });
+// 9. Minimalist Night Sky (14 Feb 2026 — Balikpapan vs Baturaja)
+    const skyCanvas = document.getElementById("nightSkyCanvas");
+    if (skyCanvas) {
+        const sCtx = skyCanvas.getContext("2d");
+        const skyLocationLabel = document.getElementById("skyLocationLabel");
+        const skyCaption = document.getElementById("skyCaption");
+        const skyTabs = document.querySelectorAll(".sky-tab");
+
+        const CITIES = {
+            balikpapan: {
+                label: "Balikpapan • 1.24° S, 116.85° E (WITA)",
+                caption: "Langit Balikpapan malam 14 Feb 2026 — Orion tepat di atas kepala, ditemani Sirius yang paling terang di sisi tenggara.",
+                shiftX: -18,
+                shiftY: -6,
+                accent: "156, 202, 180"
+            },
+            baturaja: {
+                label: "Baturaja • 4.13° S, 104.17° E (WIB)",
+                caption: "Langit Baturaja malam 14 Feb 2026 — gugus bintang yang sama persis, cuma bergeser 12.7° ke timur karena jarak 1.445 km di antara kita.",
+                shiftX: 22,
+                shiftY: 10,
+                accent: "139, 178, 222"
+            }
+        };
+
+        let activeCity = "balikpapan";
+        let currentShiftX = CITIES.balikpapan.shiftX;
+        let currentShiftY = CITIES.balikpapan.shiftY;
+
+        // Posisi relatif rasi bintang langit ekuator pertengahan Februari (~21:00)
+        const CONSTELLATIONS = [
+            {
+                name: "ORION",
+                labelPos: [0.46, 0.22],
+                stars: [
+                    { name: "Betelgeuse", x: 0.43, y: 0.27, r: 2.5, tint: "#ffd7b5" },
+                    { name: "Bellatrix",  x: 0.53, y: 0.29, r: 2.0 },
+                    { name: "Alnitak",    x: 0.46, y: 0.41, r: 1.8 },
+                    { name: "Alnilam",    x: 0.48, y: 0.40, r: 1.9 },
+                    { name: "Mintaka",    x: 0.50, y: 0.39, r: 1.8 },
+                    { name: "Saiph",      x: 0.44, y: 0.53, r: 1.9 },
+                    { name: "Rigel",      x: 0.54, y: 0.52, r: 2.6, tint: "#cfe4ff" }
+                ],
+                lines: [[0, 1], [0, 2], [1, 4], [2, 3], [3, 4], [2, 5], [4, 6], [5, 6]]
+            },
+            {
+                name: "CANIS MAJOR",
+                labelPos: [0.69, 0.53],
+                stars: [
+                    { name: "Sirius",  x: 0.66, y: 0.48, r: 3.3, glow: true, tint: "#e3f0ff" },
+                    { name: "Mirzam",  x: 0.61, y: 0.51, r: 1.7 },
+                    { name: "Wezen",   x: 0.69, y: 0.62, r: 1.8 },
+                    { name: "Adhara",  x: 0.65, y: 0.66, r: 1.9 },
+                    { name: "Aludra",  x: 0.73, y: 0.65, r: 1.6 }
+                ],
+                lines: [[0, 1], [0, 2], [2, 3], [2, 4]]
+            },
+            {
+                name: "CARINA",
+                labelPos: [0.63, 0.81],
+                stars: [
+                    { name: "Canopus", x: 0.61, y: 0.77, r: 2.9, glow: true, tint: "#fff7e8" },
+                    { name: "Avior",   x: 0.72, y: 0.82, r: 1.7 }
+                ],
+                lines: [[0, 1]]
+            },
+            {
+                name: "TAURUS",
+                labelPos: [0.23, 0.25],
+                stars: [
+                    { name: "Aldebaran", x: 0.29, y: 0.31, r: 2.3, tint: "#ffd2a8" },
+                    { name: "Pleiades",  x: 0.19, y: 0.34, r: 2.1, tint: "#cce3ff" }
+                ],
+                lines: [[0, 1]]
+            }
+        ];
+
+        // Bintang latar acak untuk kedalaman langit
+        const bgStars = Array.from({ length: 85 }, () => ({
+            x: Math.random(),
+            y: Math.random(),
+            r: Math.random() * 1.1 + 0.35,
+            phase: Math.random() * Math.PI * 2,
+            speed: Math.random() * 0.018 + 0.008
+        }));
+
+        const setupSkyCanvas = () => {
+            const rect = skyCanvas.parentElement.getBoundingClientRect();
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            skyCanvas.width = rect.width * dpr;
+            skyCanvas.height = rect.height * dpr;
+            sCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        };
+        setupSkyCanvas();
+        window.addEventListener("resize", setupSkyCanvas);
+
+        skyTabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+                skyTabs.forEach((t) => t.classList.remove("active"));
+                tab.classList.add("active");
+                activeCity = tab.dataset.city;
+                skyLocationLabel.textContent = CITIES[activeCity].label;
+                skyCaption.textContent = CITIES[activeCity].caption;
+            });
+        });
+
+        let frame = 0;
+        const renderSky = () => {
+            frame++;
+            const w = skyCanvas.parentElement.clientWidth;
+            const h = skyCanvas.parentElement.clientHeight;
+            const target = CITIES[activeCity];
+
+            // Interpolasi halus saat ganti kota
+            currentShiftX += (target.shiftX - currentShiftX) * 0.07;
+            currentShiftY += (target.shiftY - currentShiftY) * 0.07;
+
+            sCtx.clearRect(0, 0, w, h);
+
+            // Garis bantu lingkaran langit tipis
+            sCtx.strokeStyle = `rgba(${target.accent}, 0.08)`;
+            sCtx.lineWidth = 1;
+            sCtx.beginPath();
+            sCtx.arc(w * 0.5, h * 0.5, Math.min(w, h) * 0.43, 0, Math.PI * 2);
+            sCtx.stroke();
+
+            // Bintang latar berkelip pelan
+            bgStars.forEach((s) => {
+                const alpha = 0.25 + 0.35 * Math.sin(frame * s.speed + s.phase);
+                const sx = (s.x * w + currentShiftX * 0.45 + w) % w;
+                const sy = (s.y * h + currentShiftY * 0.45 + h) % h;
+                sCtx.fillStyle = `rgba(230, 235, 242, ${alpha.toFixed(2)})`;
+                sCtx.beginPath();
+                sCtx.arc(sx, sy, s.r, 0, Math.PI * 2);
+                sCtx.fill();
+            });
+
+            // Gambar rasi bintang
+            CONSTELLATIONS.forEach((c) => {
+                // Garis penghubung
+                sCtx.strokeStyle = `rgba(${target.accent}, 0.26)`;
+                sCtx.lineWidth = 1;
+                c.lines.forEach(([a, b]) => {
+                    const sa = c.stars[a];
+                    const sb = c.stars[b];
+                    sCtx.beginPath();
+                    sCtx.moveTo(sa.x * w + currentShiftX, sa.y * h + currentShiftY);
+                    sCtx.lineTo(sb.x * w + currentShiftX, sb.y * h + currentShiftY);
+                    sCtx.stroke();
+                });
+
+                // Titik bintang utama
+                c.stars.forEach((st) => {
+                    const px = st.x * w + currentShiftX;
+                    const py = st.y * h + currentShiftY;
+
+                    if (st.glow) {
+                        const grad = sCtx.createRadialGradient(px, py, 0, px, py, st.r * 4.5);
+                        grad.addColorStop(0, "rgba(227, 240, 255, 0.45)");
+                        grad.addColorStop(1, "rgba(227, 240, 255, 0)");
+                        sCtx.fillStyle = grad;
+                        sCtx.beginPath();
+                        sCtx.arc(px, py, st.r * 4.5, 0, Math.PI * 2);
+                        sCtx.fill();
+                    }
+
+                    sCtx.fillStyle = st.tint || "#eef3fa";
+                    sCtx.beginPath();
+                    sCtx.arc(px, py, st.r, 0, Math.PI * 2);
+                    sCtx.fill();
+
+                    if (st.name === "Sirius" || st.name === "Canopus" || st.name === "Betelgeuse" || st.name === "Rigel") {
+                        sCtx.font = "10px 'JetBrains Mono', monospace";
+                        sCtx.fillStyle = "rgba(230, 235, 242, 0.52)";
+                        sCtx.fillText(st.name, px + 6, py + 3);
+                    }
+                });
+
+                // Label rasi
+                sCtx.font = "9px 'JetBrains Mono', monospace";
+                sCtx.fillStyle = `rgba(${target.accent}, 0.55)`;
+                sCtx.fillText(c.name, c.labelPos[0] * w + currentShiftX, c.labelPos[1] * h + currentShiftY);
+            });
+
+            requestAnimationFrame(renderSky);
+        };
+        renderSky();
+    }
