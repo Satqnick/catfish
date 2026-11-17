@@ -1,5 +1,4 @@
 :root {
-    /* Matte Obsidian Base (Low-Glare) */
     --bg-base: #07090c;
     --surface: rgba(14, 18, 24, 0.72);
     --surface-elevated: rgba(20, 26, 34, 0.88);
@@ -18,7 +17,6 @@
     --midnight-glow: rgba(31, 64, 104, 0.26);
     --midnight-border: rgba(51, 98, 150, 0.4);
 
-    /* Soft Off-White Typography */
     --text-primary: #e6ebf2;
     --text-secondary: #8a96a6;
     --text-muted: #566272;
@@ -43,7 +41,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Particle Canvas & Film Grain */
 #ambientCanvas {
     position: fixed;
     inset: 0;
@@ -91,7 +88,6 @@ body {
     opacity: var(--midnight-opacity, 0.8);
 }
 
-/* Main Container */
 .wrapper {
     position: relative;
     z-index: 1;
@@ -103,7 +99,6 @@ body {
     gap: 2.15rem;
 }
 
-/* Glass Card Surface */
 .card-surface {
     position: relative;
     background: var(--surface);
@@ -185,7 +180,6 @@ body {
     line-height: 1.75;
 }
 
-/* Section Typography */
 .eyebrow {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.68rem;
@@ -305,7 +299,7 @@ body {
     line-height: 1.68;
 }
 
-/* Interactive 1: Balance Slider */
+/* Balance Slider */
 .balance-section {
     padding: 1.65rem 1.5rem;
 }
@@ -375,7 +369,147 @@ input[type="range"]::-webkit-slider-thumb:hover {
     line-height: 1.68;
 }
 
-/* Interactive 2: Unspoken Notes Deck */
+/* Night Sky (14 Feb 2026) */
+.sky-section {
+    padding: 1.65rem 1.5rem;
+}
+
+.sky-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.15rem;
+}
+
+.sky-tabs {
+    display: inline-flex;
+    background: rgba(7, 9, 12, 0.75);
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    padding: 3px;
+    gap: 3px;
+}
+
+.sky-tab {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.sky-tab:hover {
+    color: var(--text-primary);
+}
+
+.sky-tab.active[data-city="balikpapan"] {
+    background: rgba(88, 139, 115, 0.22);
+    color: var(--sage-light);
+    box-shadow: inset 0 0 0 1px rgba(88, 139, 115, 0.4);
+}
+
+.sky-tab.active[data-city="baturaja"] {
+    background: rgba(51, 98, 150, 0.26);
+    color: var(--midnight-light);
+    box-shadow: inset 0 0 0 1px rgba(51, 98, 150, 0.45);
+}
+
+.sky-canvas-wrap {
+    position: relative;
+    width: 100%;
+    height: 270px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    background: radial-gradient(circle at 50% 35%, #0d192b 0%, #06090f 100%);
+}
+
+#nightSkyCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.sky-hud {
+    position: absolute;
+    left: 0.85rem;
+    right: 0.85rem;
+    bottom: 0.7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    color: rgba(230, 235, 242, 0.65);
+    pointer-events: none;
+}
+
+.sky-caption {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    line-height: 1.65;
+}
+
+.sky-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    max-width: 215px;
+    padding: 0.55rem 0.75rem;
+    border-radius: 10px;
+    background: rgba(10, 14, 20, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -115%) scale(0.96);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.sky-tooltip.visible {
+    opacity: 1;
+    transform: translate(-50%, -115%) scale(1);
+}
+
+.sky-tip-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.2rem;
+}
+
+.sky-tip-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.sky-tip-mag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.64rem;
+    color: var(--sage-light);
+}
+
+.sky-tip-desc {
+    font-size: 0.73rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+}
+
+/* Unspoken Notes Deck */
 .notes-section {
     padding: 1.65rem 1.5rem;
 }
@@ -538,7 +672,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     color: var(--text-secondary);
 }
 
-/* Interactive 3: Letter Drawer */
+/* Letter Drawer */
 .letter-box {
     overflow: hidden;
 }
@@ -638,24 +772,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     transform: translateY(0);
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-    .wrapper {
-        padding: 3rem 1.05rem 2.5rem;
-        gap: 1.75rem;
-    }
-
-    .counter-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .souls-grid {
-        grid-template-columns: 1fr;
-    }
-}
-/* =========================================================
-   ANIMASI: FALLING FRUITS & CAT CHASING FISH
-   ========================================================= */
+/* FX Animations: Falling Fruits & Cat Chase */
 .fx-layer {
     position: fixed;
     inset: 0;
@@ -664,7 +781,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
     overflow: hidden;
 }
 
-/* 1. Apel Hijau & Blueberry Jatuh */
 .falling-fruit {
     position: absolute;
     top: -45px;
@@ -690,7 +806,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
     }
 }
 
-/* 2. Kucing Mengejar Ikan (Gerak Kanan ke Kiri agar arah hadap emoji pas) */
 .chase-group {
     position: absolute;
     bottom: 24px;
@@ -732,98 +847,22 @@ input[type="range"]::-webkit-slider-thumb:hover {
     from { transform: translateY(0) rotate(-4deg); }
     to { transform: translateY(-9px) rotate(5deg); }
 }
-/* =========================================================
-   NIGHT SKY (14 FEB 2026 — BALIKPAPAN & BATURAJA)
-   ========================================================= */
-.sky-section {
-    padding: 1.65rem 1.5rem;
-}
 
-.sky-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 1.15rem;
-}
-
-.sky-tabs {
-    display: inline-flex;
-    background: rgba(7, 9, 12, 0.75);
-    border: 1px solid var(--border-subtle);
-    border-radius: 999px;
-    padding: 3px;
-    gap: 3px;
-}
-
-.sky-tab {
-    background: transparent;
-    border: none;
-    color: var(--text-secondary);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    padding: 0.35rem 0.75rem;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    white-space: nowrap;
-}
-
-.sky-tab:hover {
-    color: var(--text-primary);
-}
-
-.sky-tab.active[data-city="balikpapan"] {
-    background: rgba(88, 139, 115, 0.22);
-    color: var(--sage-light);
-    box-shadow: inset 0 0 0 1px rgba(88, 139, 115, 0.4);
-}
-
-.sky-tab.active[data-city="baturaja"] {
-    background: rgba(51, 98, 150, 0.26);
-    color: var(--midnight-light);
-    box-shadow: inset 0 0 0 1px rgba(51, 98, 150, 0.45);
-}
-
-.sky-canvas-wrap {
-    position: relative;
-    width: 100%;
-    height: 270px;
-    border-radius: 14px;
-    overflow: hidden;
-    border: 1px solid var(--border-subtle);
-    background: radial-gradient(circle at 50% 35%, #0d192b 0%, #06090f 100%);
-}
-
-#nightSkyCanvas {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.sky-hud {
-    position: absolute;
-    left: 0.85rem;
-    right: 0.85rem;
-    bottom: 0.7rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.66rem;
-    color: rgba(230, 235, 242, 0.65);
-    pointer-events: none;
-}
-
-.sky-caption {
-    font-size: 0.86rem;
-    color: var(--text-secondary);
-    margin-top: 1rem;
-    line-height: 1.65;
-}
-
+/* Mobile */
 @media (max-width: 600px) {
+    .wrapper {
+        padding: 3rem 1.05rem 2.5rem;
+        gap: 1.75rem;
+    }
+
+    .counter-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .souls-grid {
+        grid-template-columns: 1fr;
+    }
+
     .sky-canvas-wrap {
         height: 235px;
     }

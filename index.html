@@ -15,11 +15,12 @@
     <canvas id="ambientCanvas" aria-hidden="true"></canvas>
     <div class="noise-overlay" aria-hidden="true"></div>
     <div class="glow-layer" aria-hidden="true">
-    <!-- Layer Animasi Efek -->
-    <div id="fxLayer" class="fx-layer" aria-hidden="true"></div>
         <div class="orb orb-sage"></div>
         <div class="orb orb-midnight"></div>
     </div>
+
+    <!-- Layer Animasi Efek (Falling Fruits & Cat Chase) -->
+    <div id="fxLayer" class="fx-layer" aria-hidden="true"></div>
 
     <main class="wrapper">
         <!-- Hero Section -->
@@ -29,7 +30,7 @@
                 <span class="pill-sep">&times;</span>
                 <span>🫐</span>
                 <span class="pill-divider">|</span>
-                <span class="pill-date">14.02.27 &mdash; HAPPY ANNIVERSARY</span>
+                <span class="pill-date">14.02.26 &mdash; HAPPY ANNIVERSARY</span>
             </div>
 
             <h1 class="hero-title" id="heroTitle">Two Souls, One Story.</h1>
@@ -96,31 +97,6 @@
         </section>
 
         <!-- Interactive 1: Frequency & Aura Mixer -->
-         <!-- Interactive: Night Sky 14 Feb 2026 -->
-        <section class="card-surface sky-section reveal">
-            <div class="sky-header">
-                <div>
-                    <div class="eyebrow left">14.02.2026 &bull; 21:00 LOCAL SKY</div>
-                    <h2 class="section-heading">Same Sky, 1.445 km Apart</h2>
-                </div>
-                <div class="sky-tabs" role="tablist" aria-label="Pilih lokasi langit malam">
-                    <button type="button" class="sky-tab active" data-city="balikpapan">🍏 BPN</button>
-                    <button type="button" class="sky-tab" data-city="baturaja">🫐 BTA</button>
-                </div>
-            </div>
-
-            <div class="sky-canvas-wrap">
-                <canvas id="nightSkyCanvas"></canvas>
-                <div class="sky-hud">
-                    <span id="skyLocationLabel">Balikpapan &bull; 1.24° S, 116.85° E</span>
-                    <span class="sky-constellation-tag">Orion &bull; Sirius &bull; Canopus</span>
-                </div>
-            </div>
-
-            <p class="sky-caption" id="skyCaption">
-                Beda 1.445 km dan beda satu jam waktu, tapi malam itu kita lagi natap gugus bintang yang sama.
-            </p>
-        </section>
         <section class="card-surface balance-section reveal">
             <div class="balance-header">
                 <div>
@@ -139,7 +115,34 @@
             <p class="balance-reflection" id="balanceReflection"></p>
         </section>
 
-        <!-- Interactive 2: Unspoken Notes Deck -->
+        <!-- Interactive 2: Night Sky 14 Feb 2026 -->
+        <section class="card-surface sky-section reveal">
+            <div class="sky-header">
+                <div>
+                    <div class="eyebrow left">14.02.2026 &bull; 21:00 LOCAL SKY</div>
+                    <h2 class="section-heading">Same Sky, 1.445 km Apart</h2>
+                </div>
+                <div class="sky-tabs" role="tablist" aria-label="Pilih lokasi langit malam">
+                    <button type="button" class="sky-tab active" data-city="balikpapan">🍏 BPN</button>
+                    <button type="button" class="sky-tab" data-city="baturaja">🫐 BTA</button>
+                </div>
+            </div>
+
+            <div class="sky-canvas-wrap">
+                <canvas id="nightSkyCanvas"></canvas>
+                <div class="sky-tooltip" id="skyTooltip" aria-hidden="true"></div>
+                <div class="sky-hud">
+                    <span id="skyLocationLabel">Balikpapan &bull; 1.24° S, 116.85° E (WITA)</span>
+                    <span class="sky-constellation-tag">Orion &bull; Sirius &bull; Canopus</span>
+                </div>
+            </div>
+
+            <p class="sky-caption" id="skyCaption">
+                Langit Balikpapan malam 14 Feb 2026 — Orion tepat di atas kepala, ditemani Sirius yang paling terang di sisi tenggara.
+            </p>
+        </section>
+
+        <!-- Interactive 3: Unspoken Notes Deck -->
         <section class="card-surface notes-section reveal">
             <div class="notes-top">
                 <div>
@@ -170,7 +173,7 @@
             <div class="timeline" id="timelineContainer"></div>
         </section>
 
-        <!-- Interactive 3: Sealed Anniversary Letter -->
+        <!-- Interactive 4: Sealed Anniversary Letter -->
         <section class="letter-section reveal">
             <div class="card-surface letter-box" id="letterBox">
                 <button type="button" class="letter-trigger" id="letterTrigger" aria-expanded="false">
