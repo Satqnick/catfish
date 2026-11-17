@@ -653,3 +653,82 @@ input[type="range"]::-webkit-slider-thumb:hover {
         grid-template-columns: 1fr;
     }
 }
+/* =========================================================
+   ANIMASI: FALLING FRUITS & CAT CHASING FISH
+   ========================================================= */
+.fx-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    overflow: hidden;
+}
+
+/* 1. Apel Hijau & Blueberry Jatuh */
+.falling-fruit {
+    position: absolute;
+    top: -45px;
+    user-select: none;
+    opacity: 0;
+    animation: fruitFall var(--fall-duration, 3.5s) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--fall-delay, 0s) forwards;
+}
+
+@keyframes fruitFall {
+    0% {
+        opacity: 0;
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    12% {
+        opacity: 0.9;
+    }
+    85% {
+        opacity: 0.85;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(108vh) translateX(var(--sway, 25px)) rotate(var(--spin, 180deg));
+    }
+}
+
+/* 2. Kucing Mengejar Ikan (Gerak Kanan ke Kiri agar arah hadap emoji pas) */
+.chase-group {
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    will-change: transform;
+    animation: runAcross 4.2s linear forwards;
+}
+
+.chase-fish {
+    font-size: 1.55rem;
+    display: inline-block;
+    animation: fishSwim 0.45s ease-in-out infinite alternate;
+}
+
+.chase-cat {
+    font-size: 1.85rem;
+    display: inline-block;
+    animation: catBound 0.32s ease-in-out infinite alternate;
+}
+
+@keyframes runAcross {
+    0% {
+        transform: translateX(105vw);
+    }
+    100% {
+        transform: translateX(-220px);
+    }
+}
+
+@keyframes fishSwim {
+    from { transform: translateY(-4px) rotate(-6deg); }
+    to { transform: translateY(4px) rotate(6deg); }
+}
+
+@keyframes catBound {
+    from { transform: translateY(0) rotate(-4deg); }
+    to { transform: translateY(-9px) rotate(5deg); }
+}

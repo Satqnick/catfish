@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
         timelineContainer.appendChild(el);
     });
 
-    // 5. Render Letter & Toggle
+    // 5. Render Letter, Toggle & Easter Egg Animations
     const letterContent = document.getElementById("letterContent");
     STORY.letterParagraphs.forEach((pText) => {
         const p = document.createElement("p");
@@ -191,11 +191,64 @@ document.addEventListener("DOMContentLoaded", () => {
     sig.textContent = STORY.letterSignature;
     letterContent.appendChild(sig);
 
+    const fxLayer = document.getElementById("fxLayer");
+
+    // Efek 1: Apel hijau & blueberry jatuh saat halaman dibuka
+    const spawnFallingFruits = () => {
+        if (!fxLayer) return;
+        const items = ["🍏", "🫐"];
+        const total = 24;
+
+        for (let i = 0; i < total; i++) {
+            const el = document.createElement("span");
+            el.className = "falling-fruit";
+            el.textContent = items[i % 2];
+
+            const leftPos = Math.random() * 96;
+            const size = (Math.random() * 0.65 + 1.1).toFixed(2);
+            const duration = (Math.random() * 1.8 + 2.8).toFixed(2);
+            const delay = (Math.random() * 1.4).toFixed(2);
+            const sway = `${Math.round((Math.random() - 0.5) * 70)}px`;
+            const spin = `${Math.round((Math.random() - 0.5) * 320)}deg`;
+
+            el.style.left = `${leftPos}vw`;
+            el.style.fontSize = `${size}rem`;
+            el.style.setProperty("--fall-duration", `${duration}s`);
+            el.style.setProperty("--fall-delay", `${delay}s`);
+            el.style.setProperty("--sway", sway);
+            el.style.setProperty("--spin", spin);
+
+            fxLayer.appendChild(el);
+
+            setTimeout(() => el.remove(), (parseFloat(duration) + parseFloat(delay)) * 1000 + 200);
+        }
+    };
+
+    // Efek 2: Kucing mengejar ikan lewat di bawah layar
+    const triggerCatChase = () => {
+        if (!fxLayer) return;
+        const group = document.createElement("div");
+        group.className = "chase-group";
+        group.innerHTML = `
+            <span class="chase-fish">🐟</span>
+            <span class="chase-cat">🐈‍⬛</span>
+        `;
+        fxLayer.appendChild(group);
+
+        setTimeout(() => group.remove(), 4400);
+    };
+
+    // Jalankan buah jatuh begitu web dibuka
+    spawnFallingFruits();
+
     const letterBox = document.getElementById("letterBox");
     const letterTrigger = document.getElementById("letterTrigger");
     letterTrigger.addEventListener("click", () => {
         const isOpen = letterBox.classList.toggle("open");
         letterTrigger.setAttribute("aria-expanded", String(isOpen));
+        if (isOpen) {
+            triggerCatChase();
+        }
     });
 
     // 6. Subtle Cursor Spotlight
