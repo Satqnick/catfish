@@ -54,14 +54,13 @@ const STORY = {
         }
     ],
 
-    letterTitle: "Buka Surat Anniversary",
+    letterTitle: "What'd I say?",
     letterParagraphs: [
-        "Happy anniversary, bawel. Nggak kerasa udah sejauh ini sejak 14 Februari 2026 kemarin.",
-        "Aku sadar aku bukan tipe orang yang selalu romantis atau vokal tiap saat. Tapi sama kamu, aku nemu bentuk nyaman yang beda—yang gak berisik, gak maksa, tapi selalu ada.",
-        "Makasih udah jadi tempat pulang paling teduh, udah ngertiin isi kepala aku yang kadang terlalu ramai, dan tetap jalan bareng sejauh ini.",
-        "Here's to more quiet mornings, late-night talks, and growing at our own pace. Happy anniversary, my first & last love."
+        "Happy anniversary, bawel. Gak kerasa udah sejauh ini sejak 14 Februari 2026 kemarin.",
+        "My love, I cannot promise you an eternity untouched by change. We are human, after all, and time will inevitably alter the things we know about ourselves. We will grow, we will learn, and perhaps there will be days when the world feels heavier than either of us can explain. But I hope you understand that my affection for you is not dependent on the world remaining gentle. I want to know you in every version of yourself. The person you are today, the person you will become tomorrow, and all the little versions of you that time will introduce to me along the way. If we are granted another lifetime, I would hope to meet you there, too. Perhaps as strangers, perhaps beneath unfamiliar stars, perhaps without any recollection of the words we exchanged in this life. And if I am fortunate enough to love you again, I hope I will do so with the same sincerity. I do not ask the universe to make us immortal. I only ask that, for whatever time we are given, we do not forget to appreciate the privilege of having found one another. And if there is one thing I wish to remain constant through all the changes life brings, it is this: I would still choose you. Not because I must, not because I am afraid of a life without you, but because knowing you has made the life I already have a little more meaningful.",
+        "Here's to more quiet mornings, late-night talks, and growing at our own pace. Happy anniversary, my first love. Can't wait to see what the next chapters hold for us."
     ],
-    letterSignature: "— Always in your corner, 🍏."
+    letterSignature: "— 🍏. Yours, in this lifetime and every moment it contains."
 };
 
 document.addEventListener("DOMContentLoaded", () => {
